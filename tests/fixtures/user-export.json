@@ -1,0 +1,2272 @@
+{
+  "jyotish_hide_welcome": 1,
+  "jyotish_utc_spcl 05. Ve aspected by both ju and ra within 5 degrees": {
+    "name": "spcl 05. Ve aspected by both ju and ra within 5 degrees",
+    "birth_data": {
+      "date": "2000-01-01",
+      "time": "12:00:00",
+      "latitude": 0,
+      "longitude": 0,
+      "timezone_offset": 0,
+      "_isTest": true
+    },
+    "ayanamsa": 0,
+    "lagna": {
+      "rashi": 10,
+      "degree_in_rashi": 10,
+      "rashi_name": "Capricorn"
+    },
+    "grahas": [
+      {
+        "graha": "Sun",
+        "rashi": 1,
+        "degree_in_rashi": 5,
+        "retrograde": false
+      },
+      {
+        "graha": "Moon",
+        "rashi": 4,
+        "degree_in_rashi": 5,
+        "retrograde": false
+      },
+      {
+        "graha": "Mars",
+        "rashi": 1,
+        "degree_in_rashi": 25,
+        "retrograde": false
+      },
+      {
+        "graha": "Mercury",
+        "rashi": 6,
+        "degree_in_rashi": 20,
+        "retrograde": false
+      },
+      {
+        "graha": "Jupiter",
+        "rashi": 4,
+        "degree_in_rashi": 15,
+        "retrograde": false
+      },
+      {
+        "graha": "Venus",
+        "rashi": 12,
+        "degree_in_rashi": 18.016666666666666,
+        "retrograde": false
+      },
+      {
+        "graha": "Saturn",
+        "rashi": 11,
+        "degree_in_rashi": 7,
+        "retrograde": false
+      },
+      {
+        "graha": "Rahu",
+        "rashi": 8,
+        "degree_in_rashi": 20.166666666666668,
+        "retrograde": false
+      },
+      {
+        "graha": "Ketu",
+        "rashi": 2,
+        "degree_in_rashi": 20.166666666666668,
+        "retrograde": false
+      }
+    ],
+    "expected": {
+      "Venus": {
+        "isWeak": true,
+        "minStrength": 40,
+        "maxStrength": 41
+      }
+    }
+  },
+  "jyotish_utc_spcl 02. afflict from dushtana Ra in 12th to Ma in 4th": {
+    "name": "spcl 02. afflict from dushtana Ra in 12th to Ma in 4th",
+    "birth_data": {
+      "date": "2000-01-01",
+      "time": "12:00:00",
+      "latitude": 0,
+      "longitude": 0,
+      "timezone_offset": 0,
+      "_isTest": true
+    },
+    "ayanamsa": 0,
+    "lagna": {
+      "rashi": 3,
+      "degree_in_rashi": 8,
+      "rashi_name": "Gemini"
+    },
+    "grahas": [
+      {
+        "graha": "Sun",
+        "rashi": 3,
+        "degree_in_rashi": 24,
+        "retrograde": false
+      },
+      {
+        "graha": "Moon",
+        "rashi": 9,
+        "degree_in_rashi": 20,
+        "retrograde": false
+      },
+      {
+        "graha": "Mars",
+        "rashi": 6,
+        "degree_in_rashi": 15,
+        "retrograde": false
+      },
+      {
+        "graha": "Mercury",
+        "rashi": 4,
+        "degree_in_rashi": 20,
+        "retrograde": false
+      },
+      {
+        "graha": "Jupiter",
+        "rashi": 12,
+        "degree_in_rashi": 23,
+        "retrograde": false
+      },
+      {
+        "graha": "Venus",
+        "rashi": 5,
+        "degree_in_rashi": 22,
+        "retrograde": false
+      },
+      {
+        "graha": "Saturn",
+        "rashi": 11,
+        "degree_in_rashi": 22,
+        "retrograde": false
+      },
+      {
+        "graha": "Rahu",
+        "rashi": 2,
+        "degree_in_rashi": 16.983333333333334,
+        "retrograde": false
+      },
+      {
+        "graha": "Ketu",
+        "rashi": 8,
+        "degree_in_rashi": 16.983333333333334,
+        "retrograde": false
+      }
+    ],
+    "expected": {
+      "Mars": {
+        "isWeak": true,
+        "minStrength": 25,
+        "maxStrength": 25
+      }
+    }
+  },
+  "jyotish_atlas": {
+    "Renton, Washington": {
+      "lat": "47.4799",
+      "lon": "-122.2035",
+      "tz": -7,
+      "tzName": "America/Los_Angeles"
+    },
+    "Seattle, Washington": {
+      "lat": "47.6038",
+      "lon": "-122.3301",
+      "tz": -7,
+      "tzName": "America/Los_Angeles"
+    },
+    "Fairfield, Iowa": {
+      "lat": "41.0072",
+      "lon": "-91.9630",
+      "tz": -5,
+      "tzName": "America/Chicago"
+    },
+    "Jamaica, NY": {
+      "lat": "40.6998",
+      "lon": "-73.8077",
+      "tz": -4,
+      "tzName": "America/New_York"
+    },
+    "Jersey City, NJ": {
+      "lat": "40.7216",
+      "lon": "-74.0475",
+      "tz": -4,
+      "tzName": "America/New_York"
+    },
+    "Decorah, Iowa": {
+      "lat": "43.3042",
+      "lon": "-91.7859",
+      "tz": -5,
+      "tzName": "America/Chicago"
+    },
+    "Simla Himachal": {
+      "lat": "31.1040",
+      "lon": "77.1708",
+      "tz": 5.5,
+      "tzName": "Asia/Kolkata"
+    },
+    "Martinsville, Indiana": {
+      "lat": "39.4278",
+      "lon": "-86.4283",
+      "tz": -4,
+      "tzName": "America/Indiana/Indianapolis"
+    },
+    "Iowa City, Iowa": {
+      "lat": "41.6613",
+      "lon": "-91.5299",
+      "tz": -5,
+      "tzName": "America/Chicago"
+    },
+    "Bellevue,wa": {
+      "lat": "47.6144",
+      "lon": "-122.1923",
+      "tz": -7,
+      "tzName": "America/Los_Angeles"
+    },
+    "Glasgow, Mt": {
+      "lat": "48.1956",
+      "lon": "-106.6356",
+      "tz": -6,
+      "tzName": "America/Denver"
+    }
+  },
+  "jyotish_muhurta": [
+    {
+      "dt": "2026-04-16 11:01",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2026-04-12T17:58:27.931262",
+      "beneficDays": 1801,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-16 11:02",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2026-04-07T13:57:10.770700",
+      "beneficDays": 1796,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-16 11:19",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2026-01-09T17:13:54.833196",
+      "beneficDays": 1708,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:20",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2026-01-04T13:10:06.388993",
+      "beneficDays": 1703,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:21",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-12-30T09:06:09.534981",
+      "beneficDays": 1698,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:22",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-12-25T05:02:04.271906",
+      "beneficDays": 1693,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:23",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-12-20T00:57:50.599835",
+      "beneficDays": 1687,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:24",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-12-14T20:53:28.519345",
+      "beneficDays": 1682,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:25",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-12-09T16:48:57.734828",
+      "beneficDays": 1677,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:26",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-12-04T12:44:18.844837",
+      "beneficDays": 1672,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:27",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-11-29T08:39:31.550909",
+      "beneficDays": 1667,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:28",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-11-24T04:34:35.854889",
+      "beneficDays": 1662,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:29",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-11-19T00:29:31.756179",
+      "beneficDays": 1656,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:30",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-11-13T20:24:19.254763",
+      "beneficDays": 1651,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:31",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-11-08T16:18:58.360021",
+      "beneficDays": 1646,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:32",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-11-03T12:13:29.062839",
+      "beneficDays": 1641,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-16 11:33",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Saturn/Jupiter",
+      "antarStart": "2025-10-29T08:07:51.368637",
+      "beneficDays": 1636,
+      "strongPlanets": 6,
+      "strongHouses": 11
+    },
+    {
+      "dt": "2026-04-17 09:15",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-10-08T23:50:30.064474",
+      "beneficDays": 793,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:16",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-10-04T06:22:38.861249",
+      "beneficDays": 788,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:17",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-09-29T12:54:41.837156",
+      "beneficDays": 783,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:18",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-09-24T19:26:38.996449",
+      "beneficDays": 778,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:19",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-09-20T01:58:30.338480",
+      "beneficDays": 774,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:20",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-09-15T08:30:15.864847",
+      "beneficDays": 769,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:21",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-09-10T15:01:55.305204",
+      "beneficDays": 764,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:22",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-09-05T21:33:29.207724",
+      "beneficDays": 760,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:23",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-09-01T04:04:57.298653",
+      "beneficDays": 755,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:24",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-08-27T10:36:19.583585",
+      "beneficDays": 750,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:25",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-08-22T17:07:36.059046",
+      "beneficDays": 745,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:26",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-08-17T23:38:46.728455",
+      "beneficDays": 741,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:27",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-08-13T06:09:51.597120",
+      "beneficDays": 736,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:28",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-08-08T12:40:50.661110",
+      "beneficDays": 731,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 09:29",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-08-03T19:11:43.923506",
+      "beneficDays": 726,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:30",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-07-30T01:42:31.386917",
+      "beneficDays": 722,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:31",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-07-25T08:13:13.055239",
+      "beneficDays": 717,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:32",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-07-20T14:43:48.650387",
+      "beneficDays": 712,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:33",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-07-15T21:14:18.728985",
+      "beneficDays": 708,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:34",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-07-11T03:44:43.010383",
+      "beneficDays": 703,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:35",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-07-06T10:15:01.501399",
+      "beneficDays": 698,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:36",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-07-01T16:45:14.203545",
+      "beneficDays": 693,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:37",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-06-26T23:15:21.117985",
+      "beneficDays": 689,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:38",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-06-22T05:45:22.245030",
+      "beneficDays": 684,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:39",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-06-17T12:15:17.586180",
+      "beneficDays": 679,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:40",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-06-12T18:45:07.145025",
+      "beneficDays": 674,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:41",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-06-08T01:14:50.922332",
+      "beneficDays": 670,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:42",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-06-03T07:44:28.917727",
+      "beneficDays": 665,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:43",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-05-29T14:14:01.133952",
+      "beneficDays": 660,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:44",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-05-24T20:43:27.301394",
+      "beneficDays": 655,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:45",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-05-20T03:12:47.964806",
+      "beneficDays": 651,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:46",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-05-15T09:42:02.856261",
+      "beneficDays": 646,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:47",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-05-10T16:11:11.975560",
+      "beneficDays": 641,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:48",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-05-05T22:40:15.321033",
+      "beneficDays": 637,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:49",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-05-01T05:09:12.897853",
+      "beneficDays": 632,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:50",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-04-26T11:38:04.708710",
+      "beneficDays": 627,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:51",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-04-21T18:06:50.753039",
+      "beneficDays": 622,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 09:52",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2025-04-17T00:35:31.032220",
+      "beneficDays": 618,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 10:38",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-09-11T08:50:58.930665",
+      "beneficDays": 400,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 10:39",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-09-06T15:15:10.065522",
+      "beneficDays": 395,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 10:40",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-09-01T21:39:15.233055",
+      "beneficDays": 391,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 10:41",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-08-28T04:03:14.988278",
+      "beneficDays": 386,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 10:42",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-08-23T10:27:09.061661",
+      "beneficDays": 381,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 10:43",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-08-18T16:50:57.448211",
+      "beneficDays": 376,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 10:44",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-08-13T23:14:40.153184",
+      "beneficDays": 372,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:45",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-08-09T05:38:17.180837",
+      "beneficDays": 367,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:46",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-08-04T12:01:48.526886",
+      "beneficDays": 362,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:47",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-07-30T18:25:14.196300",
+      "beneficDays": 357,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:48",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-07-26T00:48:34.189560",
+      "beneficDays": 353,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:49",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-07-21T07:11:48.511374",
+      "beneficDays": 348,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:50",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-07-16T13:34:57.158516",
+      "beneficDays": 343,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:51",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-07-11T19:57:59.861182",
+      "beneficDays": 338,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:52",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-07-07T02:20:57.168800",
+      "beneficDays": 334,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:53",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-07-02T08:43:48.807891",
+      "beneficDays": 329,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:54",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-06-27T15:06:34.782819",
+      "beneficDays": 324,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:55",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-06-22T21:29:15.093220",
+      "beneficDays": 320,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:56",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-06-18T03:51:49.740504",
+      "beneficDays": 315,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:57",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-06-13T10:14:18.724331",
+      "beneficDays": 310,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:58",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-06-08T16:36:42.052284",
+      "beneficDays": 305,
+      "strongPlanets": 4,
+      "strongHouses": 9
+    },
+    {
+      "dt": "2026-04-17 10:59",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-06-03T22:58:59.721194",
+      "beneficDays": 301,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:00",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-05-30T05:21:11.731109",
+      "beneficDays": 296,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:01",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-05-25T11:43:18.088710",
+      "beneficDays": 291,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:02",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-05-20T18:05:18.518729",
+      "beneficDays": 286,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:03",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-05-16T00:27:13.570266",
+      "beneficDays": 282,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:04",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-05-11T06:49:02.974633",
+      "beneficDays": 277,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:05",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-05-06T13:10:46.728280",
+      "beneficDays": 272,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:06",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-05-01T19:32:24.835451",
+      "beneficDays": 267,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:07",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-04-27T01:53:57.299061",
+      "beneficDays": 263,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:08",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-04-22T08:15:24.117186",
+      "beneficDays": 258,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:09",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-04-17T14:36:45.294682",
+      "beneficDays": 253,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:10",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-04-12T20:58:00.831344",
+      "beneficDays": 249,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:11",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-04-08T03:19:10.730028",
+      "beneficDays": 244,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:12",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-04-03T09:40:14.990347",
+      "beneficDays": 239,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:13",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-03-29T16:01:13.614798",
+      "beneficDays": 234,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:14",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-03-24T22:22:06.332437",
+      "beneficDays": 230,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:15",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-03-20T04:42:53.693055",
+      "beneficDays": 225,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:16",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-03-15T11:03:35.420861",
+      "beneficDays": 220,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:17",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-03-10T17:24:11.521466",
+      "beneficDays": 215,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:18",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-03-05T23:44:41.993140",
+      "beneficDays": 211,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:19",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-03-01T06:05:06.837420",
+      "beneficDays": 206,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:20",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-02-25T12:25:26.063337",
+      "beneficDays": 201,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:21",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-02-20T18:45:39.661566",
+      "beneficDays": 196,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:22",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-02-16T01:05:47.639870",
+      "beneficDays": 192,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:23",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-02-11T07:25:49.998136",
+      "beneficDays": 187,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:24",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-02-06T13:45:46.742211",
+      "beneficDays": 182,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:25",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-02-01T20:05:37.591752",
+      "beneficDays": 177,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:26",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-01-28T02:25:23.104703",
+      "beneficDays": 173,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:27",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-01-23T08:45:03.000896",
+      "beneficDays": 168,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:28",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-01-18T15:04:37.287032",
+      "beneficDays": 163,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-17 11:29",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Mercury/Saturn",
+      "antarStart": "2024-01-13T21:24:05.964050",
+      "beneficDays": 159,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:29",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-03-03T08:25:35.095979",
+      "beneficDays": 81,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:30",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-03-01T15:29:35.171864",
+      "beneficDays": 79,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:31",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-27T22:33:35.200404",
+      "beneficDays": 77,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:32",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-26T05:37:35.183109",
+      "beneficDays": 76,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:33",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-24T12:41:35.119723",
+      "beneficDays": 74,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:34",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-22T19:45:35.010832",
+      "beneficDays": 72,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:35",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-21T02:49:34.858068",
+      "beneficDays": 70,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:36",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-19T09:53:34.661092",
+      "beneficDays": 69,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:37",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-17T16:57:34.421760",
+      "beneficDays": 67,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:38",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-16T00:01:34.139687",
+      "beneficDays": 65,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:39",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-14T07:05:33.817122",
+      "beneficDays": 64,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:40",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-12T14:09:33.353803",
+      "beneficDays": 62,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:41",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-10T21:13:32.950423",
+      "beneficDays": 60,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:42",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-09T04:17:32.506833",
+      "beneficDays": 59,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:43",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-07T11:21:32.024998",
+      "beneficDays": 57,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:44",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-05T18:25:31.504969",
+      "beneficDays": 55,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:45",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-04T01:29:30.948874",
+      "beneficDays": 53,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:46",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-02-02T08:33:30.355242",
+      "beneficDays": 52,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:47",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-31T15:37:29.726068",
+      "beneficDays": 50,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:48",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-29T22:41:29.063026",
+      "beneficDays": 48,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:49",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-28T05:45:28.364699",
+      "beneficDays": 47,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:50",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-26T12:49:27.633327",
+      "beneficDays": 45,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:51",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-24T19:53:26.770209",
+      "beneficDays": 43,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:52",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-23T02:57:25.973568",
+      "beneficDays": 41,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:53",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-21T10:01:25.145916",
+      "beneficDays": 40,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:54",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-19T17:05:24.287950",
+      "beneficDays": 38,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:55",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-18T00:09:23.399809",
+      "beneficDays": 36,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:56",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-16T07:13:22.482297",
+      "beneficDays": 35,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:57",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-14T14:17:21.536226",
+      "beneficDays": 33,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:58",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-12T21:21:20.563496",
+      "beneficDays": 31,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    },
+    {
+      "dt": "2026-04-19 10:59",
+      "loc": "Simla Himachal",
+      "sign": 3,
+      "signName": "Gemini",
+      "antarDasha": "Sun/Mars",
+      "antarStart": "2026-01-11T04:25:19.562894",
+      "beneficDays": 30,
+      "strongPlanets": 5,
+      "strongHouses": 10
+    }
+  ],
+  "jyotish_utc_spcl 01. MMP -75% Ketu afflicts Ve within 2°": {
+    "name": "spcl 01. MMP -75% Ketu afflicts Ve within 2°",
+    "birth_data": {
+      "date": "2000-01-01",
+      "time": "12:00:00",
+      "latitude": 0,
+      "longitude": 0,
+      "timezone_offset": 0,
+      "_isTest": true
+    },
+    "ayanamsa": 0,
+    "lagna": {
+      "rashi": 3,
+      "degree_in_rashi": 8,
+      "rashi_name": "Gemini"
+    },
+    "grahas": [
+      {
+        "graha": "Sun",
+        "rashi": 3,
+        "degree_in_rashi": 5,
+        "retrograde": false
+      },
+      {
+        "graha": "Moon",
+        "rashi": 1,
+        "degree_in_rashi": 19,
+        "retrograde": false
+      },
+      {
+        "graha": "Mars",
+        "rashi": 12,
+        "degree_in_rashi": 18,
+        "retrograde": false
+      },
+      {
+        "graha": "Mercury",
+        "rashi": 6,
+        "degree_in_rashi": 12,
+        "retrograde": false
+      },
+      {
+        "graha": "Jupiter",
+        "rashi": 12,
+        "degree_in_rashi": 24,
+        "retrograde": false
+      },
+      {
+        "graha": "Venus",
+        "rashi": 9,
+        "degree_in_rashi": 22.033333333333335,
+        "retrograde": false
+      },
+      {
+        "graha": "Saturn",
+        "rashi": 11,
+        "degree_in_rashi": 10,
+        "retrograde": false
+      },
+      {
+        "graha": "Rahu",
+        "rashi": 11,
+        "degree_in_rashi": 24,
+        "retrograde": false
+      },
+      {
+        "graha": "Ketu",
+        "rashi": 5,
+        "degree_in_rashi": 24,
+        "retrograde": false
+      }
+    ],
+    "expected": {
+      "Mercury": {
+        "minStrength": 150,
+        "maxStrength": 160
+      },
+      "Venus": {
+        "isWeak": true,
+        "minStrength": 25,
+        "maxStrength": 25
+      },
+      "Ketu": {
+        "isMMP": true
+      }
+    }
+  },
+  "jyotish_utc_spcl 03. su within 2° on nodes -75%": {
+    "name": "spcl 03. su within 2° on nodes -75%",
+    "birth_data": {
+      "date": "2000-01-01",
+      "time": "12:00:00",
+      "latitude": 0,
+      "longitude": 0,
+      "timezone_offset": 0,
+      "_isTest": true
+    },
+    "ayanamsa": 0,
+    "lagna": {
+      "rashi": 3,
+      "degree_in_rashi": 18,
+      "rashi_name": "Gemini"
+    },
+    "grahas": [
+      {
+        "graha": "Sun",
+        "rashi": 12,
+        "degree_in_rashi": 11.016666666666667,
+        "retrograde": false
+      },
+      {
+        "graha": "Moon",
+        "rashi": 5,
+        "degree_in_rashi": 5,
+        "retrograde": false
+      },
+      {
+        "graha": "Mars",
+        "rashi": 11,
+        "degree_in_rashi": 8,
+        "retrograde": false
+      },
+      {
+        "graha": "Mercury",
+        "rashi": 7,
+        "degree_in_rashi": 14,
+        "retrograde": false
+      },
+      {
+        "graha": "Jupiter",
+        "rashi": 1,
+        "degree_in_rashi": 13,
+        "retrograde": false
+      },
+      {
+        "graha": "Venus",
+        "rashi": 9,
+        "degree_in_rashi": 12,
+        "retrograde": false
+      },
+      {
+        "graha": "Saturn",
+        "rashi": 4,
+        "degree_in_rashi": 12,
+        "retrograde": false
+      },
+      {
+        "graha": "Rahu",
+        "rashi": 6,
+        "degree_in_rashi": 13,
+        "retrograde": false
+      },
+      {
+        "graha": "Ketu",
+        "rashi": 12,
+        "degree_in_rashi": 13,
+        "retrograde": false
+      }
+    ],
+    "expected": {
+      "Sun": {
+        "isWeak": true,
+        "minStrength": 25,
+        "maxStrength": 25
+      }
+    }
+  },
+  "jyotish_utc_Reg 01. Ra afflicts Mo within 1° -50%": {
+    "name": "Reg 01. Ra afflicts Mo within 1° -50%",
+    "birth_data": {
+      "date": "2000-01-01",
+      "time": "12:00:00",
+      "latitude": 0,
+      "longitude": 0,
+      "timezone_offset": 0,
+      "_isTest": true
+    },
+    "ayanamsa": 0,
+    "lagna": {
+      "rashi": 3,
+      "degree_in_rashi": 8,
+      "rashi_name": "Gemini"
+    },
+    "grahas": [
+      {
+        "graha": "Sun",
+        "rashi": 3,
+        "degree_in_rashi": 5,
+        "retrograde": false
+      },
+      {
+        "graha": "Moon",
+        "rashi": 7,
+        "degree_in_rashi": 23.05,
+        "retrograde": false
+      },
+      {
+        "graha": "Mars",
+        "rashi": 12,
+        "degree_in_rashi": 18,
+        "retrograde": false
+      },
+      {
+        "graha": "Mercury",
+        "rashi": 3,
+        "degree_in_rashi": 20,
+        "retrograde": false
+      },
+      {
+        "graha": "Jupiter",
+        "rashi": 12,
+        "degree_in_rashi": 24,
+        "retrograde": false
+      },
+      {
+        "graha": "Venus",
+        "rashi": 1,
+        "degree_in_rashi": 10,
+        "retrograde": false
+      },
+      {
+        "graha": "Saturn",
+        "rashi": 11,
+        "degree_in_rashi": 10,
+        "retrograde": false
+      },
+      {
+        "graha": "Rahu",
+        "rashi": 11,
+        "degree_in_rashi": 24,
+        "retrograde": false
+      },
+      {
+        "graha": "Ketu",
+        "rashi": 5,
+        "degree_in_rashi": 24,
+        "retrograde": false
+      }
+    ],
+    "expected": {
+      "Moon": {
+        "isWeak": true,
+        "minStrength": 50,
+        "maxStrength": 50
+      }
+    }
+  },
+  "jyotish_muhurta_cfg": {
+    "minBeneficDays": 30,
+    "planetMins": {
+      "Sun": 0,
+      "Moon": 0,
+      "Mars": 0,
+      "Mercury": 0,
+      "Jupiter": 0.6,
+      "Venus": 0,
+      "Saturn": 0
+    }
+  },
+  "jyotish_new_form": {
+    "lat": "47.6144",
+    "lon": "-122.1923",
+    "tz": "-8",
+    "date": "1982-11-02",
+    "time": "06:18",
+    "name": "Corwin",
+    "atlasName": "Bellevue,wa"
+  },
+  "jyotish_charts": [
+    {
+      "name": "Coralie",
+      "date": "1951-02-06",
+      "time": "06:50",
+      "lat": "48.1956",
+      "lon": "-106.6356",
+      "tz": -7,
+      "locationName": "Glasgow, Mt"
+    },
+    {
+      "name": "Corwin",
+      "date": "1982-11-02",
+      "time": "06:21",
+      "lat": "47.6144",
+      "lon": "-122.1923",
+      "tz": -8,
+      "locationName": "Bellevue,wa"
+    },
+    {
+      "name": "Freeda",
+      "date": "1985-04-25",
+      "time": "17:38",
+      "lat": "41.6613",
+      "lon": "-91.5299",
+      "tz": -6,
+      "locationName": "Iowa City, Iowa"
+    },
+    {
+      "name": "JK",
+      "date": "1946-09-27",
+      "time": "18:37",
+      "lat": "39.4278",
+      "lon": "-86.4283",
+      "tz": -6,
+      "locationName": "Martinsville, Indiana"
+    },
+    {
+      "name": "Muhurta from Sara",
+      "date": "2026-04-04",
+      "time": "11:55",
+      "lat": "43.3000",
+      "lon": "-91.7833",
+      "tz": -5,
+      "locationName": "Decorah, Iowa"
+    },
+    {
+      "name": "Omesh",
+      "date": "1972-05-14",
+      "time": "01:00",
+      "lat": "31.1000",
+      "lon": "77.1667",
+      "tz": 5.5,
+      "locationName": "Simla Himachal Prades, India"
+    },
+    {
+      "name": "paul",
+      "date": "1948-07-02",
+      "time": "08:28",
+      "lat": "47.4833",
+      "lon": "-122.2167",
+      "tz": -8,
+      "locationName": "Renton, Washington"
+    },
+    {
+      "name": "Rosie",
+      "date": "1951-05-28",
+      "time": "08:28",
+      "lat": "40.7333",
+      "lon": "-74.0833",
+      "tz": -4,
+      "locationName": "Jersey City, NJ"
+    },
+    {
+      "name": "Sara Muhurta for Fairfield",
+      "date": "2026-04-04",
+      "time": "11:55",
+      "lat": "41.0167",
+      "lon": "-91.9667",
+      "tz": -5,
+      "locationName": "Fairfield, Iowa"
+    },
+    {
+      "name": "T",
+      "date": "1946-06-14",
+      "time": "10:54",
+      "lat": "40.6833",
+      "lon": "-73.8000",
+      "tz": -4,
+      "locationName": "Jamaica, NY"
+    }
+  ],
+  "jyotish_utc_state debilitated su in libra": {
+    "name": "state debilitated su in libra",
+    "birth_data": {
+      "date": "2000-01-01",
+      "time": "12:00:00",
+      "latitude": 0,
+      "longitude": 0,
+      "timezone_offset": 0,
+      "_isTest": true
+    },
+    "ayanamsa": 0,
+    "lagna": {
+      "rashi": 3,
+      "degree_in_rashi": 22,
+      "rashi_name": "Gemini"
+    },
+    "grahas": [
+      {
+        "graha": "Sun",
+        "rashi": 7,
+        "degree_in_rashi": 12,
+        "retrograde": false
+      },
+      {
+        "graha": "Moon",
+        "rashi": 12,
+        "degree_in_rashi": 8,
+        "retrograde": false
+      },
+      {
+        "graha": "Mars",
+        "rashi": 9,
+        "degree_in_rashi": 8,
+        "retrograde": false
+      },
+      {
+        "graha": "Mercury",
+        "rashi": 6,
+        "degree_in_rashi": 22,
+        "retrograde": false
+      },
+      {
+        "graha": "Jupiter",
+        "rashi": 11,
+        "degree_in_rashi": 18,
+        "retrograde": false
+      },
+      {
+        "graha": "Venus",
+        "rashi": 8,
+        "degree_in_rashi": 10,
+        "retrograde": false
+      },
+      {
+        "graha": "Saturn",
+        "rashi": 4,
+        "degree_in_rashi": 14,
+        "retrograde": false
+      },
+      {
+        "graha": "Rahu",
+        "rashi": 12,
+        "degree_in_rashi": 5,
+        "retrograde": false
+      },
+      {
+        "graha": "Ketu",
+        "rashi": 6,
+        "degree_in_rashi": 5,
+        "retrograde": false
+      }
+    ],
+    "expected": {
+      "Sun": {
+        "debilitated": true,
+        "maxStrength": 50
+      }
+    }
+  },
+  "jyotish_utc_spcl 04. Mo --> Ke  --> Ju special -75": {
+    "name": "spcl 04. Mo --> Ke  --> Ju special -75",
+    "birth_data": {
+      "date": "2000-01-01",
+      "time": "12:00:00",
+      "latitude": 0,
+      "longitude": 0,
+      "timezone_offset": 0,
+      "_isTest": true
+    },
+    "ayanamsa": 0,
+    "lagna": {
+      "rashi": 5,
+      "degree_in_rashi": 18,
+      "rashi_name": "Leo"
+    },
+    "grahas": [
+      {
+        "graha": "Sun",
+        "rashi": 3,
+        "degree_in_rashi": 11,
+        "retrograde": false
+      },
+      {
+        "graha": "Moon",
+        "rashi": 5,
+        "degree_in_rashi": 10,
+        "retrograde": false
+      },
+      {
+        "graha": "Mars",
+        "rashi": 11,
+        "degree_in_rashi": 8,
+        "retrograde": false
+      },
+      {
+        "graha": "Mercury",
+        "rashi": 8,
+        "degree_in_rashi": 5,
+        "retrograde": false
+      },
+      {
+        "graha": "Jupiter",
+        "rashi": 1,
+        "degree_in_rashi": 11.033333333333333,
+        "retrograde": false
+      },
+      {
+        "graha": "Venus",
+        "rashi": 2,
+        "degree_in_rashi": 12,
+        "retrograde": false
+      },
+      {
+        "graha": "Saturn",
+        "rashi": 8,
+        "degree_in_rashi": 12,
+        "retrograde": false
+      },
+      {
+        "graha": "Rahu",
+        "rashi": 11,
+        "degree_in_rashi": 13,
+        "retrograde": false
+      },
+      {
+        "graha": "Ketu",
+        "rashi": 5,
+        "degree_in_rashi": 13,
+        "retrograde": false
+      }
+    ],
+    "expected": {
+      "Jupiter": {
+        "isWeak": true,
+        "minStrength": 25,
+        "maxStrength": 25
+      }
+    }
+  },
+  "jyotish_raw": 0,
+  "jyotish_tests_visible": 1
+}
