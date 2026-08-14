@@ -87,6 +87,31 @@ test('analysis button enabled after chart load', async ({ page }) => {
   await expect(page.locator('#analysisBtn')).toBeEnabled();
 });
 
+// ── Muhurta result chart load ───────────────────────────────────────────────
+// Regression test for infinite recursion (renderChart <-> setChartViewMode)
+// when loading a chart from muhurta search results. Bug wasn't input-dependent:
+// it fired on the second+ isMuhurtaResult render because currentMuhurtaIdx is
+// set to a value >= 0 before renderChart(data, true) runs, so any real
+// loadMuhurtaChart() call hit it. Reproduce that precondition directly rather
+// than driving a full search (which needs a background job + polling).
+
+test('loading a muhurta result chart does not recurse infinitely', async ({ page }) => {
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  // Simulate state after a muhurta result index has already been selected —
+  // this is what made renderChart(data, true) reentrant via setChartViewMode.
+  await page.evaluate(() => { currentMuhurtaIdx = 0; });
+
+  let pageError = null;
+  page.once('pageerror', err => { pageError = err; });
+
+  await page.evaluate((data) => window.renderChart(data, true), paulFixture);
+  await page.waitForSelector('#rashiTable tr', { state: 'attached' });
+
+  expect(pageError).toBeNull();
+  await expect(page.locator('#rashiTable tr')).toHaveCount(10);
+});
+
 // ── API integration: New chart flow ──────────────────────────────────────────
 
 test('chart loads via New dialog with mocked API', async ({ page }) => {
