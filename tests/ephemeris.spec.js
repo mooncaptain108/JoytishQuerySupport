@@ -96,3 +96,21 @@ test('Save Report button is hidden again after reopening the dialog', async ({ p
   await expect(page.locator('#eReport')).toBeHidden();
   await expect(page.locator('#eSaveReportBtn')).toBeHidden();
 });
+
+test('dialog can be dragged by its header (makeDraggable wiring)', async ({ page }) => {
+  await loadChartWithFixedTransit(page);
+  await openEphemerisDialog(page);
+
+  const before = await page.locator('#dlgEphemeris').boundingBox();
+  const header = page.locator('#dlgEphemeris .dlg-header');
+  const hb = await header.boundingBox();
+
+  await page.mouse.move(hb.x + hb.width / 2, hb.y + hb.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(hb.x + hb.width / 2 + 150, hb.y + hb.height / 2 + 100, { steps: 10 });
+  await page.mouse.up();
+
+  const after = await page.locator('#dlgEphemeris').boundingBox();
+  expect(after.x).toBeCloseTo(before.x + 150, 0);
+  expect(after.y).toBeCloseTo(before.y + 100, 0);
+});
