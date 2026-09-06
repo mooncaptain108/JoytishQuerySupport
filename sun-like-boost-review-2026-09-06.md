@@ -114,6 +114,51 @@ The 100% cap remains an open, separate item (has its own source support).
 
 ---
 
+## Open question — the 100% ceiling vs. non-degree weakness
+
+The quote scopes the recovery narrowly: a sun-like-planet / MT-sign boost can
+lift a planet "**up to 100% in commensuration to its weakness when due to
+infancy or old age**." It says nothing about weakness from **afflictions**
+(to the planet or to its occupied-house / MT-house MEP) or from **bad
+placement** (dushtana). Read strictly, the boost's recovery function is *only*
+for degree weakness.
+
+**What the engine does today** (`muhurta_analysis.py`, "Degree cap" block):
+
+```python
+if not is_node and a['degPct'] < 1.0 and a['strengthPct'] > 1.0:
+    a['strengthPct'] = 1.0        # cap only fires when the planet started
+    a['degCapApplied'] = True     # weak *by degree* (infancy / old age)
+```
+
+- A planet weak **only by degree**, then boosted → capped at 100%. Matches the
+  quote.
+- A planet at **full degree strength** but afflicted / badly placed, then
+  boosted → **not capped**; it can and does exceed 100% (pinned by
+  `test_degree_cap_does_not_apply_when_deg_pct_is_full`). The boost has fully
+  offset the affliction loss and then some.
+- A planet that is **both infant and afflicted** → `degPct < 1.0`, so the cap
+  fires and pulls it to exactly 100%. The boost has erased not just the
+  infancy deficit but the affliction loss too, up to 100% — arguably more than
+  "in commensuration to its weakness … due to infancy or old age."
+
+**The open question:** should sun-like / MT-sign boosts be able to offset
+affliction- or placement-based weakness at all? Two candidate readings:
+
+1. **Recovery is degree-only.** The boost repairs the infancy/old-age deficit
+   and no more; affliction and dushtana losses stand untouched underneath it.
+   (Would mean applying the boost to the *degree component* and re-combining,
+   not multiplying the already-afflicted total.)
+2. **Boost multiplies the final total** (current behaviour), and the only
+   ceiling is the degree cap.
+
+No worked examples combining afflictions / bad placement with MT or sun-like
+boosts have turned up in the source material, so the practical impact is
+unknown and may be negligible. Recorded here for whenever the 100%-cap item is
+picked up.
+
+---
+
 ## Suggested direction — as originally proposed
 
 - Fold the placement boosts into **two** mutually-distinct conditions:
