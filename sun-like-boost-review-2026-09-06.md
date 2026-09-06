@@ -96,7 +96,25 @@ house":
 
 ---
 
-## Suggested direction (for discussion — not yet implemented)
+## Implemented 2026-09-06 (`jyotish-chart-saas` trunk `1c2fff3`)
+
+Per the user ("keep the 25% for MT-sign placement; sun-like planet and MT-sign
+placement can't be additive"): a planet in its own Moolatrikona sign now takes
+the MT-sign +25% **alone** — the sun-like-planet and sun-like-house boosts are
+suppressed for it (same placement fact). The "sun-like planet in a *different*
+sun-like house" two-boost case (Chaudhary's "further additional rise of 25%")
+is preserved. The Leo boost and the 100% / degree cap are unchanged.
+
+Changed in `muhurta_analysis.py`, the `index.html` JS fallback analyzer, the
+Analysis popover breakdown, and `AnalysisRules.md`; regression tests added.
+Live check: the "Syed" chart (Pisces rising, Mars in the 2nd = Aries) went
+from Mars ≈ 1.95 to **1.25**.
+
+The 100% cap remains an open, separate item (has its own source support).
+
+---
+
+## Suggested direction — as originally proposed
 
 - Fold the placement boosts into **two** mutually-distinct conditions:
   - **a.** planet is a *sun-like planet* (MT sign in house 2/3/9) → one ×1.25
