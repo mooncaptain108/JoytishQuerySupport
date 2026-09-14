@@ -1,0 +1,6 @@
+1. The sun-like planets for the rising sign are the MT lords of the 2nd, 3rd, and 9th houses. 
+2. If a sun-like planet is placed in Leo then it gains 25% over what it normally would be. Same applies to Sun in a sun-like house. Same applies to sun-like planet in its own sign. Same applies to sun-like planet in some other sun-like sign. Same applies to Sun in Leo. 
+3. If a sun-like planet gets placed in a sun-like house or Leo it can gain strength up to 100% if it started in weakness due to infancy or old age but not more than 100%.
+4. If sun is a malefic placed in a sun-like house then it can gain strength as long as it doesn't afflict the MEP - otherwise no increase.
+5. Any planet placed in the 2nd, 3rd, or 9th house, or in Leo gains 25% strength unless it is a malefic planet and afflicts the MEP within 1 degree. 
+Non sun-like note. Should be added to logic if not already there. When a planet is placed in its Mooltrikona sign and the house is 6, 8, or 12 it does NOT become weak due to bad placement. This is considered a good placement.

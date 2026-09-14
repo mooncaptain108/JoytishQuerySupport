@@ -10,7 +10,11 @@ ephemeris/
 .vscode/
 
 # Scratch/reference data and generated artifacts, not test fixtures or source
-CompletedJyotishQuery-md-files/
+# CompletedJyotishQuery-md-files/ keeps its .md planning notes tracked;
+# everything else in it (old package.json/playwright.config.js, json dumps,
+# images, its own leftover .gitignore) stays ignored.
+CompletedJyotishQuery-md-files/*
+!CompletedJyotishQuery-md-files/*.md
 Muhurta-Reports/
 chart data/
 layout-screenshots/
