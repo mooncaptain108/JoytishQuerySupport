@@ -3,3 +3,16 @@ playwright-report/
 test-results/
 ephemeris/
 *.zip
+*.lnk
+
+# Personal tool/editor config, not project content
+.claude/
+.vscode/
+
+# Scratch/reference data and generated artifacts, not test fixtures or source
+CompletedJyotishQuery-md-files/
+Muhurta-Reports/
+chart data/
+layout-screenshots/
+glyphs/
+raw.json
