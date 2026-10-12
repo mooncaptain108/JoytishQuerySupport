@@ -64,20 +64,18 @@ test('old toolbar transit controls are gone', async ({ page }) => {
   }
 });
 
-test('bar is hidden in Chart view and replaces #chartTitle in transit views', async ({ page }) => {
+test('bar is hidden in Chart view and shown in transit views', async ({ page }) => {
   await loadChart(page);
   await expect(page.locator('#transitBar')).toBeHidden();
 
   await selectView(page, 'Transits');
   await expect(page.locator('#transitBar')).toBeVisible();
-  await expect(page.locator('#chartTitle')).toBeHidden();
 
   await selectView(page, 'Chart & Transits');
   await expect(page.locator('#transitBar')).toBeVisible();
 
   await selectView(page, 'Chart');
   await expect(page.locator('#transitBar')).toBeHidden();
-  await expect(page.locator('#chartTitle')).toBeVisible();
 });
 
 test('bar also shows when the Divisional panel is set to Transit', async ({ page }) => {
@@ -196,21 +194,34 @@ test('location list mirrors the atlas and picking one moves the transit there', 
   await req;
 });
 
-// JS-measured alignment (alignTransitBarToChart): the bar is pinned to
-// #chartArea's rendered left edge and width. Checked at two differently
-// proportioned viewports, since a single one can hide drift.
+// Layout (user feedback, after the bar first went above the chart): the bar
+// sits directly BELOW the main wheel, matches #chartArea's width without
+// widening it, and the wheel stays exactly where it is in Chart view.
+// Checked at two differently proportioned viewports, since one can hide drift.
 for (const vp of [{ width: 1600, height: 900 }, { width: 1024, height: 1366 }]) {
-  test(`bar lines up with #chartArea at ${vp.width}x${vp.height}`, async ({ page }) => {
+  test(`bar sits below the chart, chart doesn't move, at ${vp.width}x${vp.height}`, async ({ page }) => {
     await page.setViewportSize(vp);
     await loadChart(page);
+    const rects = () => page.evaluate(() => {
+      const r = id => document.getElementById(id).getBoundingClientRect().toJSON();
+      return { chart: r('chart'), area: r('chartArea'), bar: r('transitBar'), rashi: r('rashiBox') };
+    });
+    const before = await rects();
+
     await selectView(page, 'Transits');
     await expect(page.locator('#transitBar')).toBeVisible();
-    const { bar, area } = await page.evaluate(() => ({
-      bar: document.getElementById('transitBar').getBoundingClientRect().toJSON(),
-      area: document.getElementById('chartArea').getBoundingClientRect().toJSON(),
-    }));
-    expect(Math.abs(bar.left - area.left)).toBeLessThanOrEqual(1);
-    expect(Math.abs(bar.width - area.width)).toBeLessThanOrEqual(1);
-    expect(bar.bottom).toBeLessThanOrEqual(area.top + 1);
+    const after = await rects();
+
+    // Wheel in the same place and size as Chart view.
+    for (const k of ['top', 'left', 'width', 'height']) {
+      expect(Math.abs(after.chart[k] - before.chart[k]), 'chart ' + k).toBeLessThanOrEqual(1);
+    }
+    // Bar below the wheel, same width as #chartArea, which itself didn't widen
+    // (so the Rashi/divisional/dasha panels to its right didn't shift).
+    expect(after.bar.top).toBeGreaterThanOrEqual(after.chart.bottom - 1);
+    expect(Math.abs(after.bar.left - after.area.left)).toBeLessThanOrEqual(1);
+    expect(Math.abs(after.bar.width - after.area.width)).toBeLessThanOrEqual(1);
+    expect(Math.abs(after.area.width - before.area.width)).toBeLessThanOrEqual(1);
+    expect(Math.abs(after.rashi.left - before.rashi.left)).toBeLessThanOrEqual(1);
   });
 }
