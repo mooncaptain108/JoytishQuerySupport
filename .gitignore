@@ -20,3 +20,6 @@ chart data/
 layout-screenshots/
 glyphs/
 raw.json
+
+# Personal chart exports (JTExchange db + converted import files)
+jtexchange/
