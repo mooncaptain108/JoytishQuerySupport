@@ -97,3 +97,23 @@ test('Below Dasha falls back to below the chart when the Dasha panel is hidden',
   expect(r.parent).toBe('chartArea');
   expect(r.bar.top).toBeGreaterThanOrEqual(r.chart.bottom - 1);
 });
+
+// Phones: the Divisional chart (and so the Dasha panel's base height) is
+// shorter than the stacked controls. The list used to be squeezed to ~0px,
+// leaving the controls directly under the "Dasha Periods" title.
+for (const vp of [{ width: 412, height: 915 }, { width: 915, height: 412 }, { width: 360, height: 800 }]) {
+  test(`Below Dasha on a ${vp.width}x${vp.height} phone keeps the dasha list visible above the controls`, async ({ page }) => {
+    await setup(page, 'dasha');
+    await page.setViewportSize(vp);
+    await page.waitForTimeout(400); // resize handler is debounced
+    await showTransits(page);
+    const m = await page.evaluate(() => {
+      const r = id => document.getElementById(id).getBoundingClientRect();
+      return { inner: r('dashaInner'), bar: r('transitBar'), panel: r('dashaPanel'),
+               rem: parseFloat(getComputedStyle(document.documentElement).fontSize) };
+    });
+    expect(m.inner.height).toBeGreaterThanOrEqual(8 * m.rem);
+    expect(m.bar.top).toBeGreaterThanOrEqual(m.inner.bottom - 1); // controls below the list
+    expect(m.bar.bottom).toBeLessThanOrEqual(m.panel.bottom + 1);  // and inside the panel
+  });
+}
