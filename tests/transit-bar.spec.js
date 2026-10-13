@@ -225,3 +225,39 @@ for (const vp of [{ width: 1600, height: 900 }, { width: 1024, height: 1366 }]) 
     expect(Math.abs(after.rashi.left - before.rashi.left)).toBeLessThanOrEqual(1);
   });
 }
+
+test('slider unit list includes minute and hour', async ({ page }) => {
+  await loadChart(page);
+  expect(await page.locator('#trUnit option').evaluateAll(os => os.map(o => o.value)))
+    .toEqual(['second', 'minute', 'hour', 'day', 'month', 'year']);
+});
+
+test('hour and minute steps roll over midnight into the next/previous day', async ({ page }) => {
+  await loadChart(page);
+  await openTransitsAt(page, '2026-12-31', '23:30:00');
+  await page.selectOption('#trUnit', 'hour');
+  await scrub(page, 2);
+  await expect(page.locator('#tDate')).toHaveValue('2027-01-01');
+  await expect(page.locator('#tTime')).toHaveValue('01:30:00');
+  await scrub(page, -2);
+  await expect(page.locator('#tDate')).toHaveValue('2026-12-31');
+  await expect(page.locator('#tTime')).toHaveValue('23:30:00');
+  // Slider range is -10..10 steps.
+  await page.evaluate(() => { document.getElementById('tTime').value = '23:55:00'; });
+  await page.selectOption('#trUnit', 'minute');
+  await scrub(page, 10);
+  await expect(page.locator('#tDate')).toHaveValue('2027-01-01');
+  await expect(page.locator('#tTime')).toHaveValue('00:05:00');
+});
+
+test.describe('device in a DST time zone', () => {
+  test.use({ timezoneId: 'America/Los_Angeles' });
+  test('stepping is plain wall-clock math, unaffected by the device clock skipping 02:00', async ({ page }) => {
+    await loadChart(page);
+    await openTransitsAt(page, '2026-03-08', '01:30:00'); // LA springs forward 02:00 -> 03:00 this night
+    await page.selectOption('#trUnit', 'hour');
+    await scrub(page, 1);
+    await expect(page.locator('#tTime')).toHaveValue('02:30:00');
+    await expect(page.locator('#tDate')).toHaveValue('2026-03-08');
+  });
+});
