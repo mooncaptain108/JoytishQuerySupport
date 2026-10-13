@@ -24,7 +24,7 @@ async function setup(page, pos) {
 
 const rects = page => page.evaluate(() => {
   const r = id => document.getElementById(id).getBoundingClientRect().toJSON();
-  return { chart: r('chart'), d9: r('d9Chart'), dasha: r('dashaPanel'), bar: r('transitBar'),
+  return { chart: r('chart'), d9: r('d9Chart'), dasha: r('dashaPanel'), inner: r('dashaInner'), bar: r('transitBar'),
            parent: document.getElementById('transitBar').parentElement.id,
            rowW: document.getElementById('mainRow').scrollWidth };
 });
@@ -60,15 +60,17 @@ test('Above: bar inside the chart panel above the wheel; only that panel moves d
   expect(r.rowW).toBe(before.rowW);
 });
 
-test('Below Dasha: controls stacked at the bottom of the Dasha panel, page size unchanged', async ({ page }) => {
+test('Below Dasha: controls stacked under the dasha list, which keeps its Chart-view size', async ({ page }) => {
   await setup(page, 'dasha');
   const before = await rects(page);
   await showTransits(page);
   const r = await rects(page);
   expect(r.parent).toBe('dashaPanel');
-  expect(r.rowW).toBe(before.rowW);                                       // same width
-  expect(Math.abs(r.dasha.height - before.dasha.height)).toBeLessThanOrEqual(1); // same height
-  expect(r.bar.bottom).toBeLessThanOrEqual(r.dasha.bottom + 1);
+  expect(r.rowW).toBe(before.rowW);                                          // same width
+  expect(Math.abs(r.inner.height - before.inner.height)).toBeLessThanOrEqual(1); // list not shrunk
+  expect(Math.abs(r.inner.top - before.inner.top)).toBeLessThanOrEqual(1);
+  expect(r.bar.top).toBeGreaterThanOrEqual(r.inner.bottom - 1);              // controls below it
+  expect(r.bar.bottom).toBeLessThanOrEqual(r.dasha.bottom + 1);              // panel grew to fit
   expect(Math.abs(r.chart.top - before.chart.top)).toBeLessThanOrEqual(1);
   // Stacked: one control per line, each the bar's width.
   const tops = await page.evaluate(() => ['trNowBtn','trTime','trDate','trSlider','trUnit','trLoc']
@@ -98,22 +100,46 @@ test('Below Dasha falls back to below the chart when the Dasha panel is hidden',
   expect(r.bar.top).toBeGreaterThanOrEqual(r.chart.bottom - 1);
 });
 
-// Phones: the Divisional chart (and so the Dasha panel's base height) is
-// shorter than the stacked controls. The list used to be squeezed to ~0px,
-// leaving the controls directly under the "Dasha Periods" title.
-for (const vp of [{ width: 412, height: 915 }, { width: 915, height: 412 }, { width: 360, height: 800 }]) {
-  test(`Below Dasha on a ${vp.width}x${vp.height} phone keeps the dasha list visible above the controls`, async ({ page }) => {
-    await setup(page, 'dasha');
-    await page.setViewportSize(vp);
-    await page.waitForTimeout(400); // resize handler is debounced
+// Below Dasha sizing rules, by screen:
+//  - room below the panel: dasha list keeps its Chart-view size
+//  - not enough room: list gives up space so the panel doesn't hang below
+//    the neighbouring panels -- but never below 4 rows
+//  - too short even for that: 4 rows kept, panel extends just past the others
+const bottoms = page => page.evaluate(() => {
+  const r = id => document.getElementById(id).getBoundingClientRect();
+  return {
+    panel: r('dashaPanel').bottom, list: r('dashaList').height,
+    row: document.querySelector('#dashaList .dr').getBoundingClientRect().height,
+    floor: Math.max(r('chartArea').bottom, r('d9Area').bottom),
+    bar: r('transitBar'), inner: r('dashaInner'),
+  };
+});
+
+async function setupAt(page, vp) {
+  await setup(page, 'dasha');
+  await page.setViewportSize(vp);
+  await page.waitForTimeout(400); // resize handler is debounced
+}
+
+for (const vp of [{ width: 915, height: 412 }, { width: 360, height: 800 }, { width: 412, height: 915 }]) {
+  test(`Below Dasha on a ${vp.width}x${vp.height} phone: borrows from the list, never hangs below the other panels`, async ({ page }) => {
+    await setupAt(page, vp);
+    const before = await bottoms(page);
     await showTransits(page);
-    const m = await page.evaluate(() => {
-      const r = id => document.getElementById(id).getBoundingClientRect();
-      return { inner: r('dashaInner'), bar: r('transitBar'), panel: r('dashaPanel'),
-               rem: parseFloat(getComputedStyle(document.documentElement).fontSize) };
-    });
-    expect(m.inner.height).toBeGreaterThanOrEqual(8 * m.rem);
-    expect(m.bar.top).toBeGreaterThanOrEqual(m.inner.bottom - 1); // controls below the list
-    expect(m.bar.bottom).toBeLessThanOrEqual(m.panel.bottom + 1);  // and inside the panel
+    const m = await bottoms(page);
+    expect(m.panel).toBeLessThanOrEqual(m.floor + 1);
+    expect(m.list / m.row).toBeGreaterThanOrEqual(4);
+    expect(m.list).toBeLessThanOrEqual(before.list + 1);
+    expect(m.bar.top).toBeGreaterThanOrEqual(m.inner.bottom - 1);
   });
 }
+
+test('Below Dasha on a screen too short for controls + 4 rows: keeps 4 rows, extends only slightly', async ({ page }) => {
+  await setupAt(page, { width: 320, height: 568 });
+  await showTransits(page);
+  const m = await bottoms(page);
+  expect(m.list / m.row).toBeGreaterThanOrEqual(4);
+  expect(m.list / m.row).toBeLessThan(5.5);          // no more than needed
+  expect(m.panel).toBeGreaterThan(m.floor);           // had to extend
+  expect(m.bar.top).toBeGreaterThanOrEqual(m.inner.bottom - 1);
+});
