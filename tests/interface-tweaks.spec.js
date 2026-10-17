@@ -1,0 +1,228 @@
+const { test, expect } = require('@playwright/test');
+const paulFixture = require('./fixtures/paul.json');
+
+// Settings > Interface Tweaks popover: degree format, glyph show/bold/white
+// groups, menu labels bold, panel labels white, chart lines white/bold.
+
+test.beforeEach(async ({ page }) => {
+  await page.route('**/static/Open.md**', route => route.fulfill({ body: '# Jyotish Query\n\nWelcome.' }));
+  await page.addInitScript(() => {
+    if (sessionStorage.getItem('seeded')) return;
+    sessionStorage.setItem('seeded', '1');
+    localStorage.setItem('jyotish_hide_welcome', '1');
+    localStorage.setItem('jyotish_planet_glyphs', '1');
+    localStorage.setItem('jyotish_sign_glyphs', '1');
+  });
+  await page.goto('/');
+  await page.evaluate((d) => window.renderChart(d), paulFixture);
+  await page.waitForSelector('#rashiTable tr', { state: 'attached' });
+});
+
+async function openTweaks(page) {
+  await page.locator('#gearBtn').click();
+  await page.locator('#settingsPanel button:has-text("Interface Tweaks")').click();
+  await expect(page.locator('#dlgTweaks')).toBeVisible();
+}
+
+test('button in Settings opens the popover with grouped options', async ({ page }) => {
+  await openTweaks(page);
+  const groups = await page.locator('#dlgTweaks .tw-group').evaluateAll(gs =>
+    gs.map(g => [g.querySelector('.tw-group-title').textContent, [...g.querySelectorAll('label')].map(l => l.textContent.replace(/\s+/g, ' ').trim())]));
+  expect(groups).toEqual([
+    ['Degrees', ['4:30 4.50', 'Degrees bold']],
+    ['Planets', ['Su Mo', 'Bold', 'White']],
+    ['Signs', ['Ar 1', 'Bold', 'White']],
+    ['Menus & panels', ['Menu labels bold', 'Panel labels white', 'Analysis text plain']],
+    ['Chart lines', ['Chart lines white', 'Chart lines bold']],
+  ]);
+  // moved out of the Settings panel itself
+  for (const id of ['chkDegMin', 'chkDecimal', 'chkGlyphs', 'chkSignGlyphs'])
+    await expect(page.locator('#settingsPanel #' + id)).toHaveCount(0);
+});
+
+test('degrees switch flips deg:min / decimal and repaints every visible chart', async ({ page }) => {
+  await openTweaks(page);
+  await expect(page.locator('#chkDegDecimal')).not.toBeChecked();
+  const label = () => page.evaluate(() => [...document.querySelectorAll('#chart text.pl')].map(t => t.textContent).find(t => /\d/.test(t)));
+  expect(await label()).toMatch(/\d+:\d\d/);
+  await page.locator('#dlgTweaks .tw-mode').first().click();
+  await expect(page.locator('#chkDegDecimal')).toBeChecked();
+  expect(await page.evaluate(() => localStorage.getItem('jyotish_deg_fmt'))).toBe('decimal');
+  expect(await label()).toMatch(/\d+\.\d\d/);
+  await page.locator('#dlgTweaks .tw-mode').first().click();
+  expect(await page.evaluate(() => localStorage.getItem('jyotish_deg_fmt'))).toBe('degmin');
+});
+
+test('degrees switch keeps the Transits view on screen', async ({ page }) => {
+  const transit = page.waitForResponse(r => r.url().includes('/api/v1/chart/transit'));
+  await page.evaluate(() => setChartViewMode('transits'));
+  await transit;
+  await expect(page.locator('#chart')).toContainText('Transit');
+  await openTweaks(page);
+  await page.locator('#dlgTweaks .tw-mode').first().click();
+  await expect(page.locator('#chart')).toContainText('Transit');
+});
+
+const TWEAKS = [
+  ['#chkTwPgBold', 'jyotish_tw_pg_bold', 'tw-pg-bold'],
+  ['#chkTwPgWhite', 'jyotish_tw_pg_white', 'tw-pg-white'],
+  ['#chkTwSgBold', 'jyotish_tw_sg_bold', 'tw-sg-bold'],
+  ['#chkTwSgWhite', 'jyotish_tw_sg_white', 'tw-sg-white'],
+  ['#chkTwChartTextBold', 'jyotish_tw_chart_text_bold', 'tw-chart-text-bold'],
+  ['#chkTwMenuBold', 'jyotish_tw_menu_bold', 'tw-menu-bold'],
+  ['#chkTwAnalysisPlain', 'jyotish_tw_analysis_plain', 'tw-analysis-plain'],
+  ['#chkTwPanelWhite', 'jyotish_tw_panel_white', 'tw-panel-white'],
+  ['#chkTwLinesWhite', 'jyotish_tw_lines_white', 'tw-lines-white'],
+  ['#chkTwLinesBold', 'jyotish_tw_lines_bold', 'tw-lines-bold'],
+];
+
+test('each tweak applies live, persists, and is restored on reload', async ({ page }) => {
+  await openTweaks(page);
+  for (const [chk, key, cls] of TWEAKS) {
+    await page.check(chk);
+    expect(await page.evaluate(([k, c]) => [localStorage.getItem(k), document.body.classList.contains(c)], [key, cls])).toEqual(['1', true]);
+  }
+  await page.reload();
+  for (const [, , cls] of TWEAKS) expect(await page.evaluate(c => document.body.classList.contains(c), cls)).toBe(true);
+  await openTweaks(page);
+  for (const [chk] of TWEAKS) await expect(page.locator(chk)).toBeChecked();
+  for (const [chk, , cls] of TWEAKS) {
+    await page.uncheck(chk);
+    expect(await page.evaluate(c => document.body.classList.contains(c), cls)).toBe(false);
+  }
+});
+
+test('White glyph tweaks recolour chart glyphs (planet and sign separately)', async ({ page }) => {
+  const colors = () => page.evaluate(() => ({
+    p: getComputedStyle(document.querySelector('#chart use.gp')).color,
+    s: getComputedStyle(document.querySelector('#chart use.gs')).color,
+  }));
+  const before = await colors();
+  expect(before.p).not.toBe('rgb(255, 255, 255)');
+  await page.evaluate(() => document.body.classList.add('tw-pg-white'));
+  expect(await colors()).toEqual({ p: 'rgb(255, 255, 255)', s: before.s });
+  await page.evaluate(() => document.body.classList.add('tw-sg-white'));
+  expect((await colors()).s).toBe('rgb(255, 255, 255)');
+  await page.evaluate(() => document.body.classList.add('light'));
+  expect(await colors()).toEqual({ p: 'rgb(26, 26, 46)', s: 'rgb(26, 26, 46)' }); // dark on the light theme
+});
+
+test('chart lines white/bold apply to the main and divisional charts', async ({ page }) => {
+  const lines = () => page.evaluate(() => ['#chart polygon', '#d9Chart polygon'].map(sel => {
+    const el = document.querySelector(sel); if (!el) return null;
+    const cs = getComputedStyle(el); return [cs.stroke, cs.strokeWidth];
+  }).filter(Boolean));
+  const set = (...cls) => page.evaluate((cls) => { document.body.classList.remove('tw-lines-white', 'tw-lines-bold'); document.body.classList.add(...cls); }, cls);
+  // White looks heavier than gold at the same width, so it's drawn thinner;
+  // Bold steps each up (gold 1 -> 1.5, white 0.65 -> 1).
+  for (const [cls, stroke, w] of [
+    [[], null, '1px'], [['tw-lines-white'], 'rgb(255, 255, 255)', '0.65px'],
+    [['tw-lines-bold'], null, '1.5px'], [['tw-lines-white', 'tw-lines-bold'], 'rgb(255, 255, 255)', '1px'],
+  ]) {
+    await set(...cls);
+    for (const [s, width] of await lines()) { if (stroke) expect(s).toBe(stroke); expect(width).toBe(w); }
+  }
+});
+
+test('menu labels bold makes toolbar buttons bold white', async ({ page }) => {
+  const st = () => page.evaluate(() => { const cs = getComputedStyle(document.getElementById('viewDropdown').querySelector('.tb-btn')); return [cs.fontWeight, cs.color]; });
+  const before = await st();
+  await page.evaluate(() => document.body.classList.add('tw-menu-bold'));
+  expect(await st()).toEqual(['600', 'rgb(255, 255, 255)']);
+  expect(before[0]).not.toBe('600');
+});
+
+test('panel labels white recolours the panel titles, including the SVG chart title', async ({ page }) => {
+  await openTweaks(page);
+  await page.check('#chkTwPanelWhite');
+  const r = await page.evaluate(() => ({
+    rashi: getComputedStyle(document.getElementById('rashiTitle')).color,
+    svgTitle: [...document.querySelectorAll('#chart text')].find(t => /Paul/.test(t.textContent)).getAttribute('fill'),
+  }));
+  expect(r.rashi).toBe('rgb(255, 255, 255)');
+  expect(r.svgTitle).toBe('#ffffff');
+});
+
+test('Mobile display is gone from the Settings panel', async ({ page }) => {
+  await expect(page.locator('#chkChartBold')).toHaveCount(0);
+  await expect(page.locator('#settingsPanel')).not.toContainText('Mobile display');
+});
+
+test('degrees bold makes the chart labels bold', async ({ page }) => {
+  await page.evaluate(() => { localStorage.setItem('jyotish_planet_glyphs', '0'); });
+  const w = () => page.evaluate(() => getComputedStyle(document.querySelector('#chart text.pl')).fontWeight);
+  await page.evaluate(() => document.body.classList.add('tw-chart-text-bold'));
+  expect(await w()).toBe('700');
+});
+
+test('analysis text plain swaps the gold highlights in the Analysis popover', async ({ page }) => {
+  await page.evaluate(() => openAnalysisDialog());
+  const gold = () => page.evaluate(() => getComputedStyle(document.querySelector('#dlgAnalysis .c-gold')).color);
+  expect(await gold()).toBe('rgb(201, 168, 76)');
+  await page.evaluate(() => document.body.classList.add('tw-analysis-plain'));
+  expect(await gold()).toBe('rgb(192, 192, 208)');
+});
+
+test('the text/glyph switch flips planets and signs, and lights up the active side', async ({ page }) => {
+  await openTweaks(page);
+  const active = (row) => page.evaluate((row) => {
+    const g = [...document.querySelectorAll('#dlgTweaks .tw-mode')][row];
+    const c = el => getComputedStyle(el).color;
+    return c(g.querySelector('.tw-opt-glyph')) === 'rgb(201, 168, 76)' ? 'glyph' : (c(g.querySelector('.tw-opt-text')) === 'rgb(201, 168, 76)' ? 'text' : '?');
+  }, row);
+  await expect(page.locator('#chkGlyphs')).toBeChecked();
+  expect(await active(1)).toBe('glyph');
+  await page.locator('#dlgTweaks .tw-mode').nth(1).locator('.tw-opt-text').click(); // tap anywhere on the row
+  await expect(page.locator('#chkGlyphs')).not.toBeChecked();
+  expect(await active(1)).toBe('text');
+  await expect(page.locator('#chart use.gp')).toHaveCount(0);
+  await page.locator('#dlgTweaks .tw-mode').nth(2).click();
+  await expect(page.locator('#chkSignGlyphs')).not.toBeChecked();
+  await expect(page.locator('#chart use.gs')).toHaveCount(0);
+  await expect(page.locator('#chart text.hn')).toHaveCount(12);
+});
+
+test('Planets Bold/White apply to text planet names, not their degrees', async ({ page }) => {
+  await page.evaluate(() => { localStorage.setItem('jyotish_planet_glyphs', '0'); });
+  await page.reload();
+  await page.evaluate((d) => window.renderChart(d), paulFixture);
+  const st = () => page.evaluate(() => {
+    const pn = document.querySelector('#chart .pn');
+    const cs = getComputedStyle(pn), parent = getComputedStyle(pn.parentNode);
+    return { name: [cs.fontWeight, cs.fill], text: parent.fontWeight };
+  });
+  const before = await st();
+  expect(before.name[0]).toBe('400');
+  await page.evaluate(() => document.body.classList.add('tw-pg-bold', 'tw-pg-white'));
+  const after = await st();
+  expect(after.name).toEqual(['700', 'rgb(255, 255, 255)']);
+  expect(after.text).toBe('400'); // the degree after it is untouched
+  // Degrees bold alone bolds the degree but leaves the name normal
+  await page.evaluate(() => { document.body.classList.remove('tw-pg-bold'); document.body.classList.add('tw-chart-text-bold'); });
+  const deg = await st();
+  expect([deg.name[0], deg.text]).toEqual(['400', '700']);
+});
+
+test('Signs Bold/White apply to house sign numbers', async ({ page }) => {
+  await page.evaluate(() => { localStorage.setItem('jyotish_sign_glyphs', '0'); });
+  await page.reload();
+  await page.evaluate((d) => window.renderChart(d), paulFixture);
+  const st = () => page.evaluate(() => { const cs = getComputedStyle(document.querySelector('#chart text.hn')); return [cs.fill, cs.strokeWidth]; });
+  expect((await st())[1]).toBe('0px');
+  await page.evaluate(() => document.body.classList.add('tw-sg-bold', 'tw-sg-white'));
+  expect(await st()).toEqual(['rgb(255, 255, 255)', '0.6px']);
+});
+
+test('panel labels white also bolds/whitens the Dasha Now/Top buttons and whitens the dates', async ({ page }) => {
+  const st = () => page.evaluate(() => {
+    const b = getComputedStyle(document.querySelector('.dasha-hdr-btns button'));
+    const d = getComputedStyle(document.querySelector('#dashaList .dr-date'));
+    return { btn: [parseFloat(b.fontSize), b.fontWeight, b.color], date: [d.fontSize, d.color] };
+  });
+  const before = await st();
+  await page.evaluate(() => document.body.classList.add('tw-panel-white'));
+  const after = await st();
+  expect(after.btn[0]).toBe(before.btn[0]); // same size
+  expect(after.btn.slice(1)).toEqual(['700', 'rgb(255, 255, 255)']);
+  expect(after.date).toEqual([before.date[0], 'rgb(255, 255, 255)']); // same size, white
+});

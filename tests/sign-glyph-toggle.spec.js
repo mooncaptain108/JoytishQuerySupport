@@ -59,11 +59,11 @@ test('sign and planet glyph toggles are independent', async ({ page }) => {
   await expect(page.locator('#chart use[href^="#g-"]')).toHaveCount(0);
 });
 
-test('Settings toggle: checking it persists the key and repaints live', async ({ page }) => {
+test('Interface Tweaks toggle: checking it persists the key and repaints live', async ({ page }) => {
   await loadChart(page);
   await expect(page.locator('#rashiTable td svg.gph')).toHaveCount(0);
 
-  await page.evaluate(() => window.openSettings());
+  await page.evaluate(() => window.openTweaks()); // Settings > Interface Tweaks
   await page.check('#chkSignGlyphs');
 
   await expect.poll(() =>

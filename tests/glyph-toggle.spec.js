@@ -62,11 +62,11 @@ test('glyphs on: natal wheel planet labels use <use> refs, not text abbreviation
   await expect(page.locator('#chart use[href^="#g-"]')).not.toHaveCount(0);
 });
 
-test('Settings toggle: checking it persists the key and repaints the table live', async ({ page }) => {
+test('Interface Tweaks toggle: checking it persists the key and repaints the table live', async ({ page }) => {
   await loadChart(page);
   await expect(page.locator('#rashiTable svg.gph')).toHaveCount(0);
 
-  await page.evaluate(() => window.openSettings());
+  await page.evaluate(() => window.openTweaks()); // Settings > Interface Tweaks
   await page.check('#chkGlyphs');
 
   await expect.poll(() =>
