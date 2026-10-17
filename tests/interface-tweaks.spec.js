@@ -32,7 +32,8 @@ test('button in Settings opens the popover with grouped options', async ({ page 
     ['Degrees', ['4:30 4.50', 'Degrees bold']],
     ['Planets', ['Su Mo', 'Bold', 'White']],
     ['Signs', ['Ar 1', 'Bold', 'White']],
-    ['Menus & panels', ['Menu labels bold', 'Panel labels white', 'Analysis text plain']],
+    ['Menus & panels', ['Menu labels bold', 'Panel labels white', 'Dasha Periods dates white', 'Analysis text plain']],
+    ['Dialogs', ['Analysis bold']],
     ['Chart lines', ['Chart lines white', 'Chart lines bold']],
   ]);
   // moved out of the Settings panel itself
@@ -72,6 +73,8 @@ const TWEAKS = [
   ['#chkTwMenuBold', 'jyotish_tw_menu_bold', 'tw-menu-bold'],
   ['#chkTwAnalysisPlain', 'jyotish_tw_analysis_plain', 'tw-analysis-plain'],
   ['#chkTwPanelWhite', 'jyotish_tw_panel_white', 'tw-panel-white'],
+  ['#chkTwDashaDateWhite', 'jyotish_tw_dasha_date_white', 'tw-dasha-date-white'],
+  ['#chkTwAnalysisBold', 'jyotish_tw_analysis_bold', 'tw-analysis-bold'],
   ['#chkTwLinesWhite', 'jyotish_tw_lines_white', 'tw-lines-white'],
   ['#chkTwLinesBold', 'jyotish_tw_lines_bold', 'tw-lines-bold'],
 ];
@@ -213,16 +216,52 @@ test('Signs Bold/White apply to house sign numbers', async ({ page }) => {
   expect(await st()).toEqual(['rgb(255, 255, 255)', '0.6px']);
 });
 
-test('panel labels white also bolds/whitens the Dasha Now/Top buttons and whitens the dates', async ({ page }) => {
+test('panel labels white bolds/whitens the Dasha Now/Top buttons; dates have their own switch', async ({ page }) => {
   const st = () => page.evaluate(() => {
     const b = getComputedStyle(document.querySelector('.dasha-hdr-btns button'));
     const d = getComputedStyle(document.querySelector('#dashaList .dr-date'));
-    return { btn: [parseFloat(b.fontSize), b.fontWeight, b.color], date: [d.fontSize, d.color] };
+    return { btn: [b.fontSize, b.fontWeight, b.color], date: [d.fontSize, d.color] };
   });
   const before = await st();
   await page.evaluate(() => document.body.classList.add('tw-panel-white'));
-  const after = await st();
-  expect(after.btn[0]).toBe(before.btn[0]); // same size
-  expect(after.btn.slice(1)).toEqual(['700', 'rgb(255, 255, 255)']);
-  expect(after.date).toEqual([before.date[0], 'rgb(255, 255, 255)']); // same size, white
+  const panel = await st();
+  expect(panel.btn).toEqual([before.btn[0], '700', 'rgb(255, 255, 255)']); // same size
+  expect(panel.date).toEqual(before.date);                                  // dates untouched
+  await page.evaluate(() => { document.body.classList.remove('tw-panel-white'); document.body.classList.add('tw-dasha-date-white'); });
+  const dates = await st();
+  expect(dates.date).toEqual([before.date[0], 'rgb(255, 255, 255)']);       // same size, white
+  expect(dates.btn).toEqual(before.btn);                                    // buttons untouched
+});
+
+test('anyone with Panel labels white keeps white dasha dates (one-time carry-over)', async ({ page }) => {
+  await page.evaluate(() => { localStorage.setItem('jyotish_tw_panel_white', '1'); localStorage.removeItem('jyotish_tw_dasha_date_white'); });
+  await page.reload();
+  expect(await page.evaluate(() => [localStorage.getItem('jyotish_tw_dasha_date_white'), document.body.classList.contains('tw-dasha-date-white')])).toEqual(['1', true]);
+});
+
+test('Dasha dates use the same colour as Rashi Data degree/sign, in both themes', async ({ page }) => {
+  const cmp = () => page.evaluate(() => [
+    getComputedStyle(document.querySelector('#dashaList .dr-date')).color,
+    getComputedStyle(document.querySelectorAll('#rashiTable tr')[1].querySelectorAll('td')[1]).color,
+  ]);
+  const [dark1, dark2] = await cmp();
+  expect(dark1).toBe(dark2);
+  await page.evaluate(() => { applyDarkReader(true); });
+  const [light1, light2] = await cmp();
+  expect(light1).toBe(light2);
+});
+
+test('Analysis popover: smallest text raised to 0.88rem; Analysis bold bolds every line', async ({ page }) => {
+  await page.evaluate(() => openAnalysisDialog());
+  const st = () => page.evaluate(() => {
+    const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    const px = sel => parseFloat(getComputedStyle(document.querySelector('#analysisContent ' + sel)).fontSize) / rem;
+    const weights = [...document.querySelectorAll('#analysisContent .an-item, #analysisContent .an-lagna > div')].map(e => getComputedStyle(e).fontWeight);
+    return { sizes: [px('.an-item'), px('.an-lagna'), px('.an-run')], weights: [...new Set(weights)] };
+  });
+  const base = await st();
+  expect(base.sizes).toEqual([0.88, 0.88, 0.88]);
+  expect(base.weights).toContain('400');
+  await page.evaluate(() => document.body.classList.add('tw-analysis-bold'));
+  expect((await st()).weights).toEqual(['700']);
 });
