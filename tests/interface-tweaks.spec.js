@@ -32,7 +32,7 @@ test('button in Settings opens the popover with grouped options', async ({ page 
     ['Degrees', ['4:30 4.50', 'Degrees bold']],
     ['Planets', ['Su Mo', 'Bold', 'White']],
     ['Signs', ['Ar 1', 'Bold', 'White']],
-    ['Menus & panels', ['Menu labels bold', 'Panel labels white', 'Dasha Periods dates white']],
+    ['Menus & panels', ['Menu labels bold', 'Panel labels white', 'Dasha Periods dates white', 'Rashi Data Nakshatra text white']],
     ['Dialogs', ['Analysis bold', 'Analysis text plain']],
     ['Chart lines', ['Chart lines white', 'Chart lines bold']],
   ]);
@@ -74,6 +74,7 @@ const TWEAKS = [
   ['#chkTwAnalysisPlain', 'jyotish_tw_analysis_plain', 'tw-analysis-plain'],
   ['#chkTwPanelWhite', 'jyotish_tw_panel_white', 'tw-panel-white'],
   ['#chkTwDashaDateWhite', 'jyotish_tw_dasha_date_white', 'tw-dasha-date-white'],
+  ['#chkTwRashiNakWhite', 'jyotish_tw_rashi_nak_white', 'tw-rashi-nak-white'],
   ['#chkTwAnalysisBold', 'jyotish_tw_analysis_bold', 'tw-analysis-bold'],
   ['#chkTwLinesWhite', 'jyotish_tw_lines_white', 'tw-lines-white'],
   ['#chkTwLinesBold', 'jyotish_tw_lines_bold', 'tw-lines-bold'],
@@ -265,3 +266,21 @@ test('Analysis popover: smallest text raised to 0.88rem; Analysis bold bolds eve
   await page.evaluate(() => document.body.classList.add('tw-analysis-bold'));
   expect((await st()).weights).toEqual(['700']);
 });
+
+test('Rashi Data nakshatra: same colour as degree/sign by default; white with its tweak, same weight', async ({ page }) => {
+  const st = () => page.evaluate(() => {
+    const tds = document.querySelectorAll('#rashiTable tr')[1].querySelectorAll('td');
+    const cs = el => getComputedStyle(el);
+    return { deg: cs(tds[1]).color, sign: cs(tds[2]).color, nak: cs(tds[3]).color, nakWeight: cs(tds[3]).fontWeight, isNak: tds[3].classList.contains('rd-nak') };
+  });
+  const base = await st();
+  expect(base.isNak).toBe(true);
+  expect(base.nak).toBe(base.deg);
+  expect(base.nak).toBe(base.sign);
+  await page.evaluate(() => document.body.classList.add('tw-rashi-nak-white'));
+  const on = await st();
+  expect(on.nak).toBe('rgb(255, 255, 255)');
+  expect(on.nakWeight).toBe(base.nakWeight); // not bolded (on hold)
+  expect(on.deg).toBe(base.deg);             // other columns untouched
+});
+

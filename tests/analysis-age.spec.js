@@ -17,7 +17,7 @@ async function openAnalysis(page, isoNow) {
 
 test('age leads the second line, before Lucky Number', async ({ page }) => {
   const line = await openAnalysis(page, '2026-10-13T12:00:00');
-  await expect(line).toHaveText(/^\s*Age: 78\s*·\s*Lucky Number \d+/);
+  await expect(line).toHaveText(/^\s*Age: 78\s*·\s*Lucky Number \d+\s*·\s*Lucky Stone /);
 });
 
 test('age has not ticked over the day before the birthday', async ({ page }) => {

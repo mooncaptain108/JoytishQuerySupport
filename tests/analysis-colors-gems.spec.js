@@ -57,3 +57,11 @@ test('colours merged from the remedies files where the website left a benefic pl
   for (const r of [5, 6]) expect(has(r, 'variegated'), 'variegated ' + r).toBe(true);
 });
 
+
+test('top line shows the Lucky Stone right after the Lucky Number', async ({ page }) => {
+  await openFor(page); // Leo
+  const line = page.locator('#analysisContent .an-lagna:not(.an-lagna-foot) > div').nth(1);
+  await expect(line).toHaveText(/Lucky Number 8\s*·\s*Lucky Stone Emerald\s*·\s*Pada/);
+  const missing = await page.evaluate(() => [1,2,3,4,5,6,7,8,9,10,11,12].filter(r => !LUCKY_STONE[r]));
+  expect(missing).toEqual([]);
+});
