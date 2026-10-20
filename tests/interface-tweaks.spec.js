@@ -32,7 +32,7 @@ test('button in Settings opens the popover with grouped options', async ({ page 
     ['Degrees', ['4:30 4.50', 'Degrees bold']],
     ['Planets', ['Su Mo', 'Bold', 'White']],
     ['Signs', ['Ar 1', 'Bold', 'White']],
-    ['Menus & panels', ['Menu labels bold', 'Panel labels white', 'Dasha Periods dates white, planets bold', 'Rashi Data Nakshatra text white', 'Transit View text: remove all spaces']],
+    ['Menus & panels', ['Menu labels bold', 'Panel labels white', 'Panel labels bold', 'Dasha Periods dates white, planets bold', 'Rashi Data Nakshatra text white', 'Transit View text: remove all spaces']],
     ['Dialogs', ['Analysis bold', 'Analysis text plain']],
     ['Chart lines', ['Chart lines white', 'Chart lines bold']],
   ]);
@@ -73,6 +73,7 @@ const TWEAKS = [
   ['#chkTwMenuBold', 'jyotish_tw_menu_bold', 'tw-menu-bold'],
   ['#chkTwAnalysisPlain', 'jyotish_tw_analysis_plain', 'tw-analysis-plain'],
   ['#chkTwPanelWhite', 'jyotish_tw_panel_white', 'tw-panel-white'],
+  ['#chkTwPanelBold', 'jyotish_tw_panel_bold', 'tw-panel-bold'],
   ['#chkTwDashaDateWhite', 'jyotish_tw_dasha_date_white', 'tw-dasha-date-white'],
   ['#chkTwRashiNakWhite', 'jyotish_tw_rashi_nak_white', 'tw-rashi-nak-white'],
   ['#chkTwAnalysisBold', 'jyotish_tw_analysis_bold', 'tw-analysis-bold'],
@@ -126,6 +127,60 @@ test('chart lines white/bold apply to the main and divisional charts', async ({ 
     await set(...cls);
     for (const [s, width] of await lines()) { if (stroke) expect(s).toBe(stroke); expect(width).toBe(w); }
   }
+});
+
+test('chart lines white/bold apply to the Rashi Data and Dasha Periods frames', async ({ page }) => {
+  const frames = () => page.evaluate(() => ['#rashiInner', '#dashaInner'].map(sel => {
+    const cs = getComputedStyle(document.querySelector(sel)); return [cs.borderTopColor, cs.borderTopWidth];
+  }));
+  const set = (...cls) => page.evaluate((cls) => { document.body.classList.remove('tw-lines-white', 'tw-lines-bold'); document.body.classList.add(...cls); }, cls);
+  // Borders snap to whole pixels, so both colours are 1px and Bold is 2px.
+  for (const [cls, color, w] of [
+    [[], 'rgb(122, 90, 32)', '1px'], [['tw-lines-white'], 'rgb(255, 255, 255)', '1px'],
+    [['tw-lines-bold'], 'rgb(122, 90, 32)', '2px'], [['tw-lines-white', 'tw-lines-bold'], 'rgb(255, 255, 255)', '2px'],
+  ]) {
+    await set(...cls);
+    for (const [c, width] of await frames()) { expect(c).toBe(color); expect(width).toBe(w); }
+  }
+});
+
+test('Dasha Periods dividers span the row text, not the full panel width', async ({ page }) => {
+  const m = await page.evaluate(() => {
+    const sep = document.querySelector('#dashaList .dr-sep').getBoundingClientRect();
+    const row = document.querySelector('#dashaList .dr-sep + .dr');
+    const first = row.firstElementChild.getBoundingClientRect();
+    const date = row.querySelector('.dr-date');
+    const textRight = date.getBoundingClientRect().right - parseFloat(getComputedStyle(date).paddingRight);
+    const frame = document.getElementById('dashaInner').getBoundingClientRect();
+    return { sepL: sep.left, sepR: sep.right, textL: first.left, textR: textRight, frameL: frame.left, frameR: frame.right };
+  });
+  expect(Math.abs(m.sepL - m.textL)).toBeLessThan(1.5);
+  expect(Math.abs(m.sepR - m.textR)).toBeLessThan(1.5);
+  expect(m.sepL - m.frameL).toBeGreaterThan(4);
+  expect(m.frameR - m.sepR).toBeGreaterThan(4);
+});
+
+test('chart lines white/bold apply to the Dasha Periods maha dasha separators', async ({ page }) => {
+  const sep = () => page.evaluate(() => { const cs = getComputedStyle(document.querySelector('#dashaList .dr-sep')); return [cs.borderTopColor, cs.borderTopWidth]; });
+  const set = (...cls) => page.evaluate((cls) => { document.body.classList.remove('tw-lines-white', 'tw-lines-bold'); document.body.classList.add(...cls); }, cls);
+  for (const [cls, color, w] of [
+    // same width as the frame once either option is on
+    [[], 'rgb(90, 109, 148)', '2px'], [['tw-lines-white'], 'rgb(255, 255, 255)', '1px'],
+    [['tw-lines-bold'], 'rgb(90, 109, 148)', '2px'], [['tw-lines-white', 'tw-lines-bold'], 'rgb(255, 255, 255)', '2px'],
+  ]) {
+    await set(...cls);
+    expect(await sep()).toEqual([color, w]);
+  }
+});
+
+test('panel labels bold bolds the birth details above the chart and the other panel labels', async ({ page }) => {
+  const weights = () => page.evaluate(() =>
+    ['#chart text.chart-ttl', '#divChartSelect', '#rashiTitle', '#dashaShadowTitle', '.dasha-hdr-btns button']
+      .map(sel => getComputedStyle(document.querySelector(sel)).fontWeight));
+  expect(await page.locator('#chart text.chart-ttl').count()).toBeGreaterThan(0);
+  expect(await weights()).toEqual(['400', '400', '400', '400', '400']);
+  await page.evaluate(() => document.body.classList.add('tw-panel-bold'));
+  expect(await weights()).toEqual(['700', '700', '700', '700', '700']);
 });
 
 test('menu labels bold makes toolbar buttons bold white', async ({ page }) => {
